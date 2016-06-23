@@ -148,11 +148,6 @@ angular.module('app.controllers', [])
 	    
 	$scope.updateOptions = function(question) {
 		question.edited=true;
-		/*for(var i = 0; i < $scope.items[0].questions.length; i++) {
-				console.log('Item ' + i + ' edited: ' + $scope.items[0].questions[i].edited);
-				console.log('Item ' + i + ' answer: ' + $scope.items[0].questions[i].answer);
-		}
-		console.log('Options Set!');*/
 	}
 		
 	function calculateResults() {

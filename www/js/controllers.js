@@ -31,7 +31,7 @@ angular.module('app.controllers', [])
 			answer: -1,
 			edited: false
 		},{
-			question: "5). Have you been feeling low or down recently?",
+			question: "5). You have been feeling low or down recently.",
 			answer: -1,
 			edited: false
 		},{

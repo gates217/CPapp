@@ -1,0 +1,54 @@
+<ion-view id="page2">
+	<ion-nav-title ng-bind="title"></ion-nav-title>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+		<div ng-if="!submitted">				
+			<ion-list> 
+			  <ion-item class="item-borderless" ng-repeat="object in items track by $index" ng-show="$index == indexToShow">
+				<div ng-class="dynamicBar">
+					<h1 class="title">{{object.category}}</h1>
+				</div>
+				<br> 
+				<br>
+					<ion-item class="item item-text-wrap item-borderless" text-align="center" ng-repeat="question in object.questions">
+							<p>
+								<b>{{question.question}}</b>
+							</p>
+						<div>
+							<form class="list">
+								<ion-radio ng-model="question.answer" ng-change="updateOptions(question)" ng-value="1" style="color:green;">Yes</ion-radio>
+								<ion-radio ng-model="question.answer" ng-change="updateOptions(question)" ng-value="0" style="color:red;">No</ion-radio>
+							</form>
+						</div>
+					</ion-item>
+				</ion-list>
+			  </ion-item>
+			</ion-list>
+			
+			<div class="spacer" style="height: 22px;"><p style="width:100%;color:red;text-align:center;" ng-if="questionsAnswered">Please answer all questions.</p></div>
+			
+			
+			<a ng-click="incrementIndex()" id="diagnosisTest-button5" style="font-weight:600;border-radius:0px 0px 0px 0px;" class="button button-positive  button-block"><span ng-if="indexToShow==2"> Calculate</span><span ng-if="indexToShow!=2"> Next</span></a>
+			
+		</div>
+		
+		<div ng-if="submitted">
+			<form class="list"></form>
+			<div>
+				<h3>
+					<span ng-if="atRisk"><b> Unfortunately you are at risk of long-term disability.</b></span><span ng-if="!atRisk"> You are not at risk of long-term disability.</span>
+				</h3>
+				<p style="width:100%;color:red;text-align:center;" ng-if="pFlag">High score in Personal Category!</p>
+				<p style="width:100%;color:red;text-align:center;" ng-if="wFlag">High score in Workplace Category!</p>
+				<p style="width:100%;color:red;text-align:center;" ng-if="cFlag">High score in Context Category!</p>
+				<p 
+					<b>The following are resources that you may find useful in managing and coping with your pain:</b>
+				</p>
+			</div>
+			<a href="#" onclick="window.open('http://www.nuigalway.ie/centre_pain_research/', '_system', 'location=yes'); return false;" id="results-button8" style="font-weight:600;" class="button button-positive  button-block">Centre for Pain Research</a>
+			<button id="results-button9" style="font-weight:600;" class="button button-energized  button-block">Chronic Pain Ireland</button>
+			<button id="results-button10" style="font-weight:600;" class="button button-balanced  button-block">Arthritis Ireland</button>
+			<button id="results-button11" style="font-weight:600;border-radius:-1px -1px -1px -1px;" class="button button-assertive  button-block">Migraine Association of Ireland</button>
+			<button id="results-button12" style="font-weight:600;" class="button button-royal  button-block">The Mindfulness Centre</button>
+			</div>
+    </ion-content>
+</ion-view>
